@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "WebFetch(domain:perryw-2023.webflow.io)"
-    ]
-  }
-}
