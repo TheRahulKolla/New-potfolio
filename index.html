@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rahul Kolla — Portfolio</title>
+  <meta name="description" content="Rahul Kolla — CS Graduate Student & Backend Engineer specializing in AI, LLMs, and scalable systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Gloock&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='13' font-weight='300' fill='%23c9a96e'>ラコ</text></svg>" />
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-text">
+      <span>Loading</span>
+      <div class="loader-dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <a href="/" class="logo-text">Rahul <span class="logo-kolla">Kolla</span></a>
+    </div>
+    <div class="nav-links">
+      <a href="#work" class="nav-pill" data-scroll-to="work">Work</a>
+      <a href="#info" class="nav-pill" data-scroll-to="info">About</a>
+      <a href="#contact" class="nav-pill" data-scroll-to="contact">Contact</a>
+    </div>
+    <div class="nav-socials">
+      <a href="https://www.linkedin.com/in/rahul-kolla-7432431ba/" target="_blank" rel="noopener" class="nav-social-link" aria-label="LinkedIn">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+      </a>
+      <a href="https://github.com/TheRahulKolla" target="_blank" rel="noopener" class="nav-social-link" aria-label="GitHub">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="nav-menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-links">
+      <a href="#work" class="mobile-nav-link" data-scroll-to="work">Work</a>
+      <a href="#info" class="mobile-nav-link" data-scroll-to="info">About</a>
+      <a href="#contact" class="mobile-nav-link" data-scroll-to="contact">Contact</a>
+    </div>
+    <div class="mobile-menu-socials">
+      <a href="https://www.linkedin.com/in/rahul-kolla-7432431ba/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/TheRahulKolla" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main" id="main">
+
+    <!-- ── HERO ─────────────────────────────────────────── -->
+    <section class="section hero-section" id="hero">
+      <div class="hero-content">
+        <div class="hero-tag animate-up delay-1">
+          <span class="tag-dot"></span>
+          <span>Open to opportunities · May 2026</span>
+        </div>
+        <h1 class="hero-headline animate-up delay-2">
+          I build <em>intelligent</em><br />
+          <em>systems</em> &amp;<br />
+          scalable backends.
+        </h1>
+        <p class="hero-bio animate-up delay-3">
+          CS Grad Student at UNC Charlotte. Based in Charlotte, NC.<br />
+          <span class="hero-current">Currently</span> at AiFA Labs. Passionate about AI, LLMs &amp; engineering.
+        </p>
+        <div class="hero-cta animate-up delay-4">
+          <span class="cta-label">Scroll to see work</span>
+          <div class="cta-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="hero-deco">
+        <div class="deco-circle deco-1"></div>
+        <div class="deco-circle deco-2"></div>
+        <div class="deco-line"></div>
+      </div>
+    </section>
+
+    <!-- ── WORK ─────────────────────────────────────────── -->
+    <section class="section work-section" id="work">
+      <div class="section-header animate-up">
+        <span class="section-label">Selected Projects</span>
+        <span class="section-year">'22 – '25</span>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card animate-up" data-href="https://github.com/TheRahulKolla">
+          <div class="card-inner">
+            <div class="card-meta">
+              <span class="card-company">Personal · AI</span>
+              <span class="card-year">'25</span>
+            </div>
+            <div class="card-image">
+              <svg class="proj-svg" viewBox="0 0 560 315" xmlns="http://www.w3.org/2000/svg">
+                <rect width="560" height="315" fill="#0a0d16"/>
+                <!-- Grid bg -->
+                <defs>
+                  <pattern id="g1" width="28" height="28" patternUnits="userSpaceOnUse">
+                    <path d="M28 0H0V28" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  </pattern>
+                  <linearGradient id="glow1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
+                    <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.05"/>
+                  </linearGradient>
+                </defs>
+                <rect width="560" height="315" fill="url(#g1)"/>
+                <rect width="560" height="315" fill="url(#glow1)"/>
+                <!-- PDF Document -->
+                <rect x="60" y="40" width="120" height="155" rx="6" fill="#111827" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <rect x="60" y="40" width="120" height="24" rx="6" fill="#1e2a3a"/>
+                <rect x="60" y="52" width="120" height="12" fill="#1e2a3a"/>
+                <text x="120" y="56" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8" font-family="monospace">PDF</text>
+                <!-- Document lines -->
+                <rect x="74" y="80" width="92" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
+                <rect x="74" y="90" width="80" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+                <rect x="74" y="100" width="86" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+                <rect x="74" y="110" width="70" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+                <rect x="74" y="126" width="92" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
+                <rect x="74" y="136" width="60" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+                <rect x="74" y="146" width="76" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+                <rect x="74" y="156" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+                <!-- Connector arrow -->
+                <line x1="182" y1="118" x2="225" y2="118" stroke="rgba(99,102,241,0.6)" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <polygon points="225,114 233,118 225,122" fill="rgba(99,102,241,0.6)"/>
+                <!-- Chat bubbles -->
+                <!-- User query -->
+                <rect x="238" y="48" width="180" height="34" rx="8" fill="#1e2a4a" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+                <text x="250" y="62" fill="rgba(255,255,255,0.5)" font-size="7.5" font-family="monospace">Query:</text>
+                <text x="250" y="74" fill="rgba(255,255,255,0.75)" font-size="7.5" font-family="monospace">Summarize section 3</text>
+                <!-- AI Response -->
+                <rect x="238" y="98" width="260" height="80" rx="8" fill="#0f1f35" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+                <rect x="238" y="98" width="260" height="16" rx="8" fill="rgba(139,92,246,0.15)"/>
+                <rect x="238" y="106" width="260" height="8" fill="rgba(139,92,246,0.15)"/>
+                <text x="252" y="110" fill="#a78bfa" font-size="7" font-family="monospace">AI Response</text>
+                <text x="252" y="126" fill="rgba(255,255,255,0.6)" font-size="7" font-family="monospace">Section 3 discusses the architecture</text>
+                <text x="252" y="138" fill="rgba(255,255,255,0.6)" font-size="7" font-family="monospace">of the retrieval pipeline, using</text>
+                <text x="252" y="150" fill="rgba(255,255,255,0.6)" font-size="7" font-family="monospace">vector embeddings for semantic...</text>
+                <rect x="252" y="160" width="60" height="8" rx="2" fill="rgba(99,102,241,0.2)"/>
+                <text x="258" y="167" fill="#818cf8" font-size="6" font-family="monospace">RAG · LangChain</text>
+                <!-- Model badge -->
+                <rect x="238" y="196" width="100" height="22" rx="5" fill="#0f2010" stroke="rgba(74,222,128,0.25)" stroke-width="1"/>
+                <circle cx="252" cy="207" r="3" fill="#4ade80"/>
+                <text x="260" y="211" fill="#4ade80" font-size="7.5" font-family="monospace">Ollama · local</text>
+                <!-- FastAPI badge -->
+                <rect x="348" y="196" width="80" height="22" rx="5" fill="#1a1020" stroke="rgba(139,92,246,0.25)" stroke-width="1"/>
+                <text x="360" y="211" fill="#a78bfa" font-size="7.5" font-family="monospace">FastAPI ⚡</text>
+                <!-- Floating dots -->
+                <circle cx="490" cy="60" r="3" fill="rgba(99,102,241,0.4)"/>
+                <circle cx="510" cy="80" r="2" fill="rgba(139,92,246,0.3)"/>
+                <circle cx="530" cy="55" r="4" fill="rgba(99,102,241,0.2)"/>
+                <!-- Bottom bar -->
+                <rect x="0" y="290" width="560" height="25" fill="rgba(0,0,0,0.4)"/>
+                <text x="20" y="306" fill="rgba(255,255,255,0.25)" font-size="7" font-family="monospace">SQLite · vector store · local LLM · PDF parser</text>
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-number">01</div>
+              <h2 class="card-title">Smart Document Intelligence</h2>
+              <p class="card-desc">End-to-end local platform for intelligent PDF querying and document summarization using LLMs and RAG workflows.</p>
+              <div class="card-tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">LangChain</span>
+                <span class="tag">Ollama</span>
+                <span class="tag">SQLite</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card animate-up delay-1" data-href="https://github.com/TheRahulKolla">
+          <div class="card-inner">
+            <div class="card-meta">
+              <span class="card-company">Personal · Security</span>
+              <span class="card-year">'24</span>
+            </div>
+            <div class="card-image">
+              <svg class="proj-svg" viewBox="0 0 560 315" xmlns="http://www.w3.org/2000/svg">
+                <rect width="560" height="315" fill="#0a0f0a"/>
+                <defs>
+                  <pattern id="g2" width="28" height="28" patternUnits="userSpaceOnUse">
+                    <path d="M28 0H0V28" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  </pattern>
+                </defs>
+                <rect width="560" height="315" fill="url(#g2)"/>
+                <!-- Terminal window -->
+                <rect x="30" y="30" width="310" height="200" rx="8" fill="#0d1a0d" stroke="rgba(74,222,128,0.15)" stroke-width="1"/>
+                <rect x="30" y="30" width="310" height="26" rx="8" fill="#0f1f0f"/>
+                <rect x="30" y="44" width="310" height="12" fill="#0f1f0f"/>
+                <circle cx="48" cy="43" r="4" fill="#ef4444" opacity="0.7"/>
+                <circle cx="62" cy="43" r="4" fill="#f59e0b" opacity="0.7"/>
+                <circle cx="76" cy="43" r="4" fill="#22c55e" opacity="0.7"/>
+                <text x="48" y="75" fill="#4ade80" font-size="7.5" font-family="monospace">$ ansible-playbook deploy_siem.yml</text>
+                <text x="48" y="89" fill="rgba(255,255,255,0.4)" font-size="7" font-family="monospace">PLAY [Configure Wazuh + Suricata] ****</text>
+                <text x="48" y="101" fill="#4ade80" font-size="7" font-family="monospace">TASK [Install Wazuh agent] ......... ok</text>
+                <text x="48" y="113" fill="#4ade80" font-size="7" font-family="monospace">TASK [Start Suricata IDS] .......... ok</text>
+                <text x="48" y="125" fill="#facc15" font-size="7" font-family="monospace">TASK [Load detection rules] .... changed</text>
+                <text x="48" y="137" fill="#4ade80" font-size="7" font-family="monospace">TASK [Enable log forwarding] ....... ok</text>
+                <text x="48" y="153" fill="rgba(255,255,255,0.35)" font-size="7" font-family="monospace">PLAY RECAP ****************************</text>
+                <text x="48" y="165" fill="#4ade80" font-size="7" font-family="monospace">ok=4  changed=1  failed=0  skipped=0</text>
+                <!-- Alert panel -->
+                <rect x="360" y="30" width="170" height="200" rx="8" fill="#110e0e" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+                <rect x="360" y="30" width="170" height="26" rx="8" fill="#1a1010"/>
+                <rect x="360" y="44" width="170" height="12" fill="#1a1010"/>
+                <text x="375" y="54" fill="rgba(239,68,68,0.8)" font-size="7.5" font-family="monospace">THREAT ALERTS</text>
+                <!-- Alert items -->
+                <rect x="370" y="68" width="150" height="22" rx="4" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.25)" stroke-width="1"/>
+                <circle cx="380" cy="79" r="3" fill="#ef4444"/>
+                <text x="388" y="76" fill="rgba(255,255,255,0.7)" font-size="6.5" font-family="monospace">Port scan detected</text>
+                <text x="388" y="86" fill="rgba(255,255,255,0.35)" font-size="6" font-family="monospace">192.168.1.x · HIGH</text>
+                <rect x="370" y="98" width="150" height="22" rx="4" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.2)" stroke-width="1"/>
+                <circle cx="380" cy="109" r="3" fill="#fbbf24"/>
+                <text x="388" y="106" fill="rgba(255,255,255,0.7)" font-size="6.5" font-family="monospace">Brute force attempt</text>
+                <text x="388" y="116" fill="rgba(255,255,255,0.35)" font-size="6" font-family="monospace">SSH · 10.0.0.1 · MED</text>
+                <rect x="370" y="128" width="150" height="22" rx="4" fill="rgba(74,222,128,0.08)" stroke="rgba(74,222,128,0.15)" stroke-width="1"/>
+                <circle cx="380" cy="139" r="3" fill="#4ade80"/>
+                <text x="388" y="136" fill="rgba(255,255,255,0.7)" font-size="6.5" font-family="monospace">Rules updated</text>
+                <text x="388" y="146" fill="rgba(255,255,255,0.35)" font-size="6" font-family="monospace">Suricata · OK</text>
+                <!-- Stats row -->
+                <rect x="370" y="162" width="68" height="36" rx="4" fill="rgba(255,255,255,0.04)"/>
+                <text x="404" y="178" text-anchor="middle" fill="#ef4444" font-size="13" font-family="monospace" font-weight="bold">2</text>
+                <text x="404" y="190" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6" font-family="monospace">CRITICAL</text>
+                <rect x="452" y="162" width="68" height="36" rx="4" fill="rgba(255,255,255,0.04)"/>
+                <text x="486" y="178" text-anchor="middle" fill="#4ade80" font-size="13" font-family="monospace" font-weight="bold">14</text>
+                <text x="486" y="190" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="6" font-family="monospace">RESOLVED</text>
+                <!-- Bottom bar -->
+                <rect x="0" y="290" width="560" height="25" fill="rgba(0,0,0,0.4)"/>
+                <text x="20" y="306" fill="rgba(255,255,255,0.25)" font-size="7" font-family="monospace">Ansible · Wazuh SIEM · Suricata IDS · real-time detection</text>
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-number">02</div>
+              <h2 class="card-title">Automated Security Pipeline</h2>
+              <p class="card-desc">Automated monitoring pipeline connecting Wazuh SIEM/XDR and Suricata IDS for real-time threat detection and alerting.</p>
+              <div class="card-tags">
+                <span class="tag">Ansible</span>
+                <span class="tag">Wazuh</span>
+                <span class="tag">Suricata</span>
+                <span class="tag">Linux</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card animate-up delay-2" data-href="https://github.com/TheRahulKolla">
+          <div class="card-inner">
+            <div class="card-meta">
+              <span class="card-company">Personal · ML</span>
+              <span class="card-year">'23</span>
+            </div>
+            <div class="card-image">
+              <svg class="proj-svg" viewBox="0 0 560 315" xmlns="http://www.w3.org/2000/svg">
+                <rect width="560" height="315" fill="#0d0a14"/>
+                <defs>
+                  <pattern id="g3" width="28" height="28" patternUnits="userSpaceOnUse">
+                    <path d="M28 0H0V28" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  </pattern>
+                </defs>
+                <rect width="560" height="315" fill="url(#g3)"/>
+                <!-- Email inbox panel -->
+                <rect x="28" y="28" width="220" height="220" rx="8" fill="#0f0b18" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <rect x="28" y="28" width="220" height="28" rx="8" fill="#150f22"/>
+                <rect x="28" y="44" width="220" height="12" fill="#150f22"/>
+                <text x="44" y="47" fill="rgba(255,255,255,0.5)" font-size="8" font-family="monospace">✉ Inbox (24)</text>
+                <!-- Email rows -->
+                <!-- Spam -->
+                <rect x="36" y="66" width="204" height="28" rx="4" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+                <rect x="44" y="72" width="36" height="6" rx="3" fill="rgba(239,68,68,0.7)"/>
+                <text x="44" y="71" fill="rgba(239,68,68,0.9)" font-size="5.5" font-family="monospace">SPAM</text>
+                <text x="44" y="82" fill="rgba(255,255,255,0.6)" font-size="6.5" font-family="monospace">Win $1000 NOW!! Click here</text>
+                <text x="44" y="90" fill="rgba(255,255,255,0.25)" font-size="5.5" font-family="monospace">promo@click-now.biz · conf: 98.2%</text>
+                <!-- Ham -->
+                <rect x="36" y="100" width="204" height="28" rx="4" fill="rgba(74,222,128,0.06)" stroke="rgba(74,222,128,0.15)" stroke-width="1"/>
+                <text x="44" y="111" fill="rgba(74,222,128,0.9)" font-size="5.5" font-family="monospace">HAM</text>
+                <text x="44" y="121" fill="rgba(255,255,255,0.6)" font-size="6.5" font-family="monospace">Team standup — Thursday 10am</text>
+                <text x="44" y="129" fill="rgba(255,255,255,0.25)" font-size="5.5" font-family="monospace">manager@company.com · conf: 99.7%</text>
+                <!-- Spam -->
+                <rect x="36" y="134" width="204" height="28" rx="4" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+                <text x="44" y="145" fill="rgba(239,68,68,0.9)" font-size="5.5" font-family="monospace">SPAM</text>
+                <text x="44" y="155" fill="rgba(255,255,255,0.6)" font-size="6.5" font-family="monospace">You've been selected! Claim prize</text>
+                <text x="44" y="163" fill="rgba(255,255,255,0.25)" font-size="5.5" font-family="monospace">noreply@rewards.xyz · conf: 96.1%</text>
+                <!-- Ham -->
+                <rect x="36" y="168" width="204" height="28" rx="4" fill="rgba(74,222,128,0.06)" stroke="rgba(74,222,128,0.15)" stroke-width="1"/>
+                <text x="44" y="179" fill="rgba(74,222,128,0.9)" font-size="5.5" font-family="monospace">HAM</text>
+                <text x="44" y="189" fill="rgba(255,255,255,0.6)" font-size="6.5" font-family="monospace">Invoice #4821 attached</text>
+                <text x="44" y="197" fill="rgba(255,255,255,0.25)" font-size="5.5" font-family="monospace">billing@vendor.io · conf: 97.4%</text>
+                <!-- Model panel -->
+                <rect x="264" y="28" width="268" height="220" rx="8" fill="#0f0b18" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <rect x="264" y="28" width="268" height="28" rx="8" fill="#150f22"/>
+                <rect x="264" y="44" width="268" height="12" fill="#150f22"/>
+                <text x="280" y="47" fill="rgba(255,255,255,0.5)" font-size="8" font-family="monospace">Model Performance</text>
+                <!-- Accuracy bar -->
+                <text x="280" y="72" fill="rgba(255,255,255,0.4)" font-size="6.5" font-family="monospace">CNN Accuracy</text>
+                <rect x="280" y="76" width="236" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+                <rect x="280" y="76" width="219" height="8" rx="4" fill="rgba(139,92,246,0.6)"/>
+                <text x="508" y="83" fill="#a78bfa" font-size="6.5" font-family="monospace">92.6%</text>
+                <text x="280" y="100" fill="rgba(255,255,255,0.4)" font-size="6.5" font-family="monospace">LSTM Accuracy</text>
+                <rect x="280" y="104" width="236" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+                <rect x="280" y="104" width="225" height="8" rx="4" fill="rgba(99,102,241,0.6)"/>
+                <text x="508" y="111" fill="#818cf8" font-size="6.5" font-family="monospace">95.3%</text>
+                <text x="280" y="128" fill="rgba(255,255,255,0.4)" font-size="6.5" font-family="monospace">Precision</text>
+                <rect x="280" y="132" width="236" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+                <rect x="280" y="132" width="230" height="8" rx="4" fill="rgba(74,222,128,0.5)"/>
+                <text x="508" y="139" fill="#4ade80" font-size="6.5" font-family="monospace">97.1%</text>
+                <!-- Confusion matrix hint -->
+                <text x="280" y="162" fill="rgba(255,255,255,0.35)" font-size="6.5" font-family="monospace">Confusion Matrix</text>
+                <rect x="280" y="168" width="50" height="24" rx="2" fill="rgba(74,222,128,0.2)" stroke="rgba(74,222,128,0.3)" stroke-width="1"/>
+                <text x="305" y="183" text-anchor="middle" fill="#4ade80" font-size="8" font-family="monospace">TP</text>
+                <rect x="334" y="168" width="50" height="24" rx="2" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+                <text x="359" y="183" text-anchor="middle" fill="#ef4444" font-size="8" font-family="monospace">FP</text>
+                <rect x="280" y="196" width="50" height="24" rx="2" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+                <text x="305" y="211" text-anchor="middle" fill="#ef4444" font-size="8" font-family="monospace">FN</text>
+                <rect x="334" y="196" width="50" height="24" rx="2" fill="rgba(74,222,128,0.2)" stroke="rgba(74,222,128,0.3)" stroke-width="1"/>
+                <text x="359" y="211" text-anchor="middle" fill="#4ade80" font-size="8" font-family="monospace">TN</text>
+                <!-- Flask badge -->
+                <rect x="400" y="172" width="120" height="22" rx="5" fill="#1a1020" stroke="rgba(139,92,246,0.25)" stroke-width="1"/>
+                <text x="414" y="186" fill="#a78bfa" font-size="7.5" font-family="monospace">Flask API · deployed</text>
+                <rect x="400" y="200" width="120" height="22" rx="5" fill="#0f1020" stroke="rgba(99,102,241,0.25)" stroke-width="1"/>
+                <text x="414" y="214" fill="#818cf8" font-size="7.5" font-family="monospace">Google App Scripts</text>
+                <rect x="0" y="290" width="560" height="25" fill="rgba(0,0,0,0.4)"/>
+                <text x="20" y="306" fill="rgba(255,255,255,0.25)" font-size="7" font-family="monospace">CNN · LSTM · Deep Learning · Flask · Python</text>
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-number">03</div>
+              <h2 class="card-title">Email Spam Detection</h2>
+              <p class="card-desc">Deep learning spam classifier using CNN and LSTM models, integrated via Flask and deployed on Google App Scripts.</p>
+              <div class="card-tags">
+                <span class="tag">CNN</span>
+                <span class="tag">LSTM</span>
+                <span class="tag">Flask</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card animate-up delay-3" data-href="https://github.com/TheRahulKolla">
+          <div class="card-inner">
+            <div class="card-meta">
+              <span class="card-company">Research · Patented</span>
+              <span class="card-year">'22</span>
+            </div>
+            <div class="card-image">
+              <svg class="proj-svg" viewBox="0 0 560 315" xmlns="http://www.w3.org/2000/svg">
+                <rect width="560" height="315" fill="#100a0a"/>
+                <defs>
+                  <pattern id="g4" width="28" height="28" patternUnits="userSpaceOnUse">
+                    <path d="M28 0H0V28" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  </pattern>
+                  <radialGradient id="scanGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.08"/>
+                    <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <rect width="560" height="315" fill="url(#g4)"/>
+                <!-- Medical scan area -->
+                <circle cx="190" cy="158" r="118" fill="url(#scanGlow)" stroke="rgba(251,191,36,0.1)" stroke-width="1"/>
+                <!-- Scan rings -->
+                <circle cx="190" cy="158" r="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="6,4"/>
+                <circle cx="190" cy="158" r="70" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+                <circle cx="190" cy="158" r="40" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1"/>
+                <!-- Crosshair lines -->
+                <line x1="190" y1="40" x2="190" y2="276" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="72" y1="158" x2="308" y2="158" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <!-- Tumor region (irregular blob) -->
+                <ellipse cx="190" cy="155" rx="52" ry="44" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+                <!-- Heterogeneity zones -->
+                <ellipse cx="178" cy="148" rx="18" ry="15" fill="rgba(239,68,68,0.25)" stroke="rgba(239,68,68,0.5)" stroke-width="1"/>
+                <ellipse cx="202" cy="164" rx="14" ry="12" fill="rgba(251,191,36,0.2)" stroke="rgba(251,191,36,0.45)" stroke-width="1"/>
+                <ellipse cx="185" cy="168" rx="10" ry="8" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+                <!-- Detection markers -->
+                <circle cx="178" cy="148" r="3" fill="#ef4444"/>
+                <circle cx="202" cy="164" r="3" fill="#fbbf24"/>
+                <circle cx="185" cy="168" r="3" fill="#a78bfa"/>
+                <!-- Bounding box -->
+                <rect x="136" y="109" width="108" height="92" rx="4" fill="none" stroke="rgba(251,191,36,0.5)" stroke-width="1.5" stroke-dasharray="5,3"/>
+                <!-- Corner markers -->
+                <line x1="136" y1="115" x2="136" y2="109" stroke="#fbbf24" stroke-width="2"/><line x1="136" y1="109" x2="142" y2="109" stroke="#fbbf24" stroke-width="2"/>
+                <line x1="238" y1="109" x2="244" y2="109" stroke="#fbbf24" stroke-width="2"/><line x1="244" y1="109" x2="244" y2="115" stroke="#fbbf24" stroke-width="2"/>
+                <line x1="136" y1="195" x2="136" y2="201" stroke="#fbbf24" stroke-width="2"/><line x1="136" y1="201" x2="142" y2="201" stroke="#fbbf24" stroke-width="2"/>
+                <line x1="238" y1="201" x2="244" y2="201" stroke="#fbbf24" stroke-width="2"/><line x1="244" y1="195" x2="244" y2="201" stroke="#fbbf24" stroke-width="2"/>
+                <!-- Info panel right -->
+                <rect x="330" y="30" width="210" height="220" rx="8" fill="#0f0b0b" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <rect x="330" y="30" width="210" height="28" rx="8" fill="#1a1010"/>
+                <rect x="330" y="44" width="210" height="14" fill="#1a1010"/>
+                <text x="346" y="48" fill="rgba(251,191,36,0.8)" font-size="8" font-family="monospace">AI Analysis Report</text>
+                <!-- Metric rows -->
+                <text x="346" y="74" fill="rgba(255,255,255,0.4)" font-size="6.5" font-family="monospace">Heterogeneity Score</text>
+                <text x="500" y="74" text-anchor="end" fill="#fbbf24" font-size="7.5" font-family="monospace" font-weight="bold">0.78</text>
+                <rect x="346" y="78" width="164" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+                <rect x="346" y="78" width="128" height="5" rx="2.5" fill="rgba(251,191,36,0.5)"/>
+                <text x="346" y="100" fill="rgba(255,255,255,0.4)" font-size="6.5" font-family="monospace">Necrotic Region</text>
+                <text x="500" y="100" text-anchor="end" fill="#ef4444" font-size="7.5" font-family="monospace" font-weight="bold">23%</text>
+                <rect x="346" y="104" width="164" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+                <rect x="346" y="104" width="38" height="5" rx="2.5" fill="rgba(239,68,68,0.55)"/>
+                <text x="346" y="126" fill="rgba(255,255,255,0.4)" font-size="6.5" font-family="monospace">Viable Tumor</text>
+                <text x="500" y="126" text-anchor="end" fill="#a78bfa" font-size="7.5" font-family="monospace" font-weight="bold">61%</text>
+                <rect x="346" y="130" width="164" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
+                <rect x="346" y="130" width="100" height="5" rx="2.5" fill="rgba(139,92,246,0.55)"/>
+                <!-- Biomarker tags -->
+                <text x="346" y="154" fill="rgba(255,255,255,0.3)" font-size="6" font-family="monospace">IMAGE BIOMARKERS</text>
+                <rect x="346" y="160" width="52" height="14" rx="3" fill="rgba(251,191,36,0.12)" stroke="rgba(251,191,36,0.3)" stroke-width="1"/>
+                <text x="352" y="170" fill="#fbbf24" font-size="6" font-family="monospace">texture</text>
+                <rect x="404" y="160" width="52" height="14" rx="3" fill="rgba(139,92,246,0.12)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+                <text x="410" y="170" fill="#a78bfa" font-size="6" font-family="monospace">shape</text>
+                <rect x="346" y="180" width="60" height="14" rx="3" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+                <text x="352" y="190" fill="#818cf8" font-size="6" font-family="monospace">intensity</text>
+                <!-- Patent badge -->
+                <rect x="346" y="204" width="155" height="24" rx="5" fill="rgba(251,191,36,0.08)" stroke="rgba(251,191,36,0.25)" stroke-width="1"/>
+                <text x="354" y="218" fill="#fbbf24" font-size="8" font-family="monospace">⭐ Patented Innovation</text>
+                <rect x="0" y="290" width="560" height="25" fill="rgba(0,0,0,0.4)"/>
+                <text x="20" y="306" fill="rgba(255,255,255,0.25)" font-size="7" font-family="monospace">Computer Vision · Deep Learning · Image Biomarkers · Healthcare AI</text>
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-number">04</div>
+              <h2 class="card-title">AI Tumor Heterogeneity Detection <span class="badge-patent">Patented</span></h2>
+              <p class="card-desc">AI-driven approach for quantifying intra-tumor heterogeneity using image-based biomarkers, supporting a patented healthcare innovation.</p>
+              <div class="card-tags">
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Deep Learning</span>
+                <span class="tag">Healthcare AI</span>
+              </div>
+            </div>
+            <div class="card-link">
+              <span>View Research</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── EXPERIENCE ────────────────────────────────────── -->
+    <section class="section exp-section" id="experience">
+      <div class="section-header animate-up">
+        <span class="section-label">Experience</span>
+      </div>
+      <div class="exp-list">
+
+        <!-- AiFA Labs — Grouped -->
+        <div class="exp-item animate-up">
+          <div class="exp-left">
+            <span class="exp-period">Jan 2024 – Present</span>
+          </div>
+          <div class="exp-right">
+            <div class="exp-group-header">
+              <h3 class="exp-group-company">AiFA Labs</h3>
+            </div>
+            <div class="exp-timeline">
+
+              <div class="exp-timeline-item">
+                <div class="exp-timeline-dot"></div>
+                <div class="exp-timeline-content">
+                  <div class="exp-top">
+                    <div>
+                      <h4 class="exp-role">Software Intern</h4>
+                      <span class="exp-company">Sep 2025 – Present · <a href="https://sasa.aifalabs.com/" target="_blank" rel="noopener" class="exp-link">SASA Platform ↗</a></span>
+                    </div>
+                    <span class="exp-badge current-badge">Current</span>
+                  </div>
+                  <ul class="exp-bullets">
+                    <li>Conducting QA activities and automation testing for SASA, an AI-powered platform by AiFA Labs</li>
+                    <li>Building and maintaining automated test suites using Robot Framework and Selenium</li>
+                    <li>Identifying, reporting, and tracking bugs across multiple platform modules</li>
+                  </ul>
+                  <div class="exp-tags">
+                    <span class="tag">Robot Framework</span><span class="tag">Selenium</span><span class="tag">QA Automation</span><span class="tag">Python</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exp-timeline-item">
+                <div class="exp-timeline-dot"></div>
+                <div class="exp-timeline-content">
+                  <div class="exp-top">
+                    <div>
+                      <h4 class="exp-role">Backend Developer Intern</h4>
+                      <span class="exp-company">Jan 2024 – Jul 2024 · <a href="https://www.aifalabs.com/cerebro/multimodal-ai-cerebro-core" target="_blank" rel="noopener" class="exp-link">Cerebro Platform ↗</a></span>
+                    </div>
+                    <span class="exp-badge">Backend</span>
+                  </div>
+                  <ul class="exp-bullets">
+                    <li>Developed scalable backend services for CEREBRO using Python, Flask, and REST APIs</li>
+                    <li>Automated data ingestion and logging workflows, improving response efficiency by <strong>30%</strong></li>
+                    <li>Integrated QA testing and CI/CD deployment pipelines on AWS</li>
+                    <li>Collaborated with cross-functional teams to deliver data-driven features</li>
+                  </ul>
+                  <div class="exp-tags">
+                    <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">REST APIs</span><span class="tag">AWS</span><span class="tag">CI/CD</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item animate-up delay-3">
+          <div class="exp-left">
+            <span class="exp-period">Jan 2023 – Aug 2023</span>
+          </div>
+          <div class="exp-right">
+            <div class="exp-top">
+              <div>
+                <h3 class="exp-role">Associate Technical Lead</h3>
+                <span class="exp-company">WiOS · VIT-AP University · <a href="https://wiosc.github.io/wios-website/index.html" target="_blank" rel="noopener" class="exp-link">Women in Open Source ↗</a></span>
+              </div>
+              <span class="exp-badge">Leadership</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Mentored students in full-stack development and programming fundamentals</li>
+              <li>Oversaw design and deployment of club websites using MERN stack</li>
+              <li>Coordinated technical hackathons and knowledge-sharing events</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="tag">MERN Stack</span><span class="tag">Node.js</span><span class="tag">REST APIs</span><span class="tag">Leadership</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── ABOUT ─────────────────────────────────────────── -->
+    <section class="section info-section" id="info">
+
+      <div class="info-header animate-up">
+        <span class="section-label">About Me</span>
+        <h2 class="info-headline">
+          Engineering at the<br />
+          edge of <span class="headline-italic">AI &amp; software.</span>
+        </h2>
+      </div>
+
+      <div class="info-bio-wrap animate-up delay-1">
+        <p class="info-bio">I'm a Computer Science graduate student at UNC Charlotte, specializing in software engineering, data analytics, and intelligent systems. I love building things that sit at the intersection of great engineering and emerging AI.</p>
+        <p class="info-bio">My work spans backend systems, LLM integration, and data pipelines. I care deeply about clean architecture, performance, and shipping things that actually matter.</p>
+      </div>
+
+      <div class="info-stats animate-up delay-2">
+        <div class="info-stat">
+          <span class="info-stat-label">Currently</span>
+          <span class="info-stat-value">MS CS @ UNC Charlotte</span>
+        </div>
+        <div class="info-stat">
+          <span class="info-stat-label">Location</span>
+          <span class="info-stat-value">Charlotte, NC</span>
+        </div>
+        <div class="info-stat">
+          <span class="info-stat-label">Graduating</span>
+          <span class="info-stat-value">May 2026</span>
+        </div>
+        <div class="info-stat">
+          <span class="info-stat-label">Available</span>
+          <span class="info-stat-value available">Yes — open to roles</span>
+        </div>
+      </div>
+
+      <div class="info-lower">
+        <div class="info-skills-block animate-up delay-3">
+          <span class="section-label">Technical Skills</span>
+          <div class="skills-categories">
+            <div class="skill-category">
+              <span class="skill-cat-label">Languages</span>
+              <div class="skills-list">
+                <span class="skill-item">Python</span>
+                <span class="skill-item">JavaScript</span>
+                <span class="skill-item">Java</span>
+                <span class="skill-item">SQL</span>
+                <span class="skill-item">Bash</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <span class="skill-cat-label">AI / ML</span>
+              <div class="skills-list">
+                <span class="skill-item">LLMs</span>
+                <span class="skill-item">LangChain</span>
+                <span class="skill-item">RAG</span>
+                <span class="skill-item">OpenAI</span>
+                <span class="skill-item">Ollama</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <span class="skill-cat-label">Backend</span>
+              <div class="skills-list">
+                <span class="skill-item">FastAPI</span>
+                <span class="skill-item">Flask</span>
+                <span class="skill-item">Node.js</span>
+                <span class="skill-item">Express</span>
+                <span class="skill-item">REST APIs</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <span class="skill-cat-label">DevOps / Cloud</span>
+              <div class="skills-list">
+                <span class="skill-item">Docker</span>
+                <span class="skill-item">AWS</span>
+                <span class="skill-item">CI/CD</span>
+                <span class="skill-item">Ansible</span>
+                <span class="skill-item">Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-certs-block animate-up delay-4">
+          <span class="section-label">Certifications</span>
+          <div class="cert-list">
+            <div class="cert-item">
+              <span class="cert-icon">✦</span>
+              <span>Microsoft Azure Fundamentals (AZ-900)</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">✦</span>
+              <span>NVIDIA Deep Learning Institute</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">✦</span>
+              <span>Prompt to Prototype — Google</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">✦</span>
+              <span>Web Development — Udemy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── CONTACT ───────────────────────────────────────── -->
+    <section class="section contact-section" id="contact">
+      <div class="contact-inner animate-up">
+        <span class="section-label">Get in touch</span>
+        <h2 class="contact-headline">
+          Let's build something<br />
+          <span class="headline-italic">intelligent.</span>
+        </h2>
+        <a href="mailto:rahulkolla17@gmail.com" class="contact-email">
+          rahulkolla17@gmail.com
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+          </svg>
+        </a>
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/in/rahul-kolla-7432431ba/" target="_blank" rel="noopener" class="contact-social">LinkedIn ↗</a>
+          <a href="https://github.com/TheRahulKolla" target="_blank" rel="noopener" class="contact-social">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-left">
+      <span>© 2025 Rahul Kolla</span>
+    </div>
+    <div class="footer-center">
+      <span class="footer-quote">Built with curiosity &amp; lots of coffee ☕</span>
+    </div>
+    <div class="footer-right">
+      <a href="#hero" class="back-to-top" id="backToTop">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
