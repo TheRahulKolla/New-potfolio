@@ -1047,6 +1047,7 @@ img { max-width: 100%; display: block; }
   color: var(--text-muted);
   transition: border-color 0.2s, background 0.2s, color 0.2s;
   line-height: 1.4;
+  cursor: pointer;
 }
 
 .cert-item:hover {
@@ -1351,14 +1352,6 @@ img { max-width: 100%; display: block; }
 }
 
 /* ── CERT ITEMS ─────────────────────────────────────────────── */
-.cert-item {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: color 0.2s;
-}
-.cert-item:hover { color: var(--text-primary); }
 .cert-preview-hint {
   margin-left: auto;
   font-size: 12px;

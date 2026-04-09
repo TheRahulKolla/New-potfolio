@@ -237,6 +237,14 @@
     }, { passive: true });
   }
 
+  // ── PDF VIEWER URL HELPER ─────────────────────────────────────
+  function pdfViewerUrl(relativePath) {
+    const loc = window.location;
+    const base = loc.origin + loc.pathname.replace(/\/[^/]*$/, '/');
+    const full = encodeURIComponent(base + relativePath);
+    return `https://docs.google.com/viewer?url=${full}&embedded=true`;
+  }
+
   // ── RESUME MODAL ─────────────────────────────────────────────
   function initResumeModal() {
     const modal    = document.getElementById('resume-modal');
@@ -246,7 +254,7 @@
     const trigger  = document.getElementById('resumeBtn');
 
     function openResume() {
-      frame.src = 'assests/Rahul-Resume.pdf';
+      frame.src = pdfViewerUrl('assests/Rahul-Resume.pdf');
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -273,9 +281,10 @@
     const content  = modal.querySelector('.cert-modal-content');
 
     function openModal(src, type) {
+      const viewSrc = type === 'image' ? src : pdfViewerUrl(src);
       content.innerHTML = type === 'image'
-        ? `<img src="${src}" alt="Certificate" />`
-        : `<iframe src="${src}" title="Certificate"></iframe>`;
+        ? `<img src="${viewSrc}" alt="Certificate" />`
+        : `<iframe src="${viewSrc}" title="Certificate"></iframe>`;
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
