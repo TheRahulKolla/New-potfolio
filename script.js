@@ -237,6 +237,68 @@
     }, { passive: true });
   }
 
+  // ── RESUME MODAL ─────────────────────────────────────────────
+  function initResumeModal() {
+    const modal    = document.getElementById('resume-modal');
+    const frame    = document.getElementById('resumeFrame');
+    const closeBtn = document.getElementById('resumeClose');
+    const backdrop = document.getElementById('resumeBackdrop');
+    const trigger  = document.getElementById('resumeBtn');
+
+    function openResume() {
+      frame.src = 'assests/Rahul-Resume.pdf';
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeResume() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => { frame.src = ''; }, 260);
+    }
+
+    trigger.addEventListener('click', openResume);
+    closeBtn.addEventListener('click', closeResume);
+    backdrop.addEventListener('click', closeResume);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeResume();
+    });
+  }
+
+  // ── CERTIFICATE MODAL ────────────────────────────────────────
+  function initCertModal() {
+    const modal   = document.getElementById('cert-modal');
+    const backdrop = modal.querySelector('.cert-modal-backdrop');
+    const closeBtn = modal.querySelector('.cert-modal-close');
+    const content  = modal.querySelector('.cert-modal-content');
+
+    function openModal(src, type) {
+      content.innerHTML = type === 'image'
+        ? `<img src="${src}" alt="Certificate" />`
+        : `<iframe src="${src}" title="Certificate"></iframe>`;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => { content.innerHTML = ''; }, 260);
+    }
+
+    document.querySelectorAll('.cert-item[data-cert]').forEach(item => {
+      item.addEventListener('click', () => {
+        openModal(item.dataset.cert, item.dataset.certType);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
+
   // ── INIT ─────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     initObservers();
@@ -247,6 +309,8 @@
     initCardStagger();
     initTypingCursor();
     initScrollProgress();
+    initResumeModal();
+    initCertModal();
     updateNav();
   });
 
