@@ -7,7 +7,7 @@
   <meta name="description" content="Rahul Kolla — CS Graduate Student & Backend Engineer specializing in AI, LLMs, and scalable systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Gloock&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Gloock&family=JetBrains+Mono:wght@300;400;500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='13' font-weight='300' fill='%23c9a96e'>ラコ</text></svg>" />
 </head>
@@ -102,12 +102,28 @@
 
     <!-- ── WORK ─────────────────────────────────────────── -->
     <section class="section work-section" id="work">
-      <div class="section-header animate-up">
-        <span class="section-label">Selected Projects</span>
-        <span class="section-year">'22 – '25</span>
-      </div>
+      <div class="mc-wrapper">
 
-      <div class="projects-grid">
+        <div class="section-header animate-up">
+          <span class="section-label">Selected Projects</span>
+          <span class="section-year">'22 – '25</span>
+        </div>
+
+        <!-- SOLAR SYSTEM UNIVERSE -->
+        <div class="universe-scene animate-up">
+          <canvas id="solar-canvas" aria-label="Interactive project solar system"></canvas>
+          <p class="universe-hint">Click a planet to explore the project</p>
+
+          <!-- PROJECT DETAIL PANEL -->
+          <aside class="planet-panel" id="planet-panel" aria-live="polite" aria-label="Project details">
+            <button class="planet-panel-close" id="planet-panel-close" aria-label="Close">✕</button>
+            <div id="planet-panel-content"></div>
+          </aside>
+        </div>
+
+      </div><!-- /.mc-wrapper -->
+
+      <div style="display:none" class="projects-grid">
 
         <!-- Project 1 -->
         <article class="project-card animate-up" data-href="https://github.com/TheRahulKolla">
