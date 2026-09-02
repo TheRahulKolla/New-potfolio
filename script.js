@@ -9,10 +9,10 @@
   const loader = document.getElementById('loader');
 
   function hideLoader() {
+    // Start hero animations before loader fades so there's no visible empty gap
+    triggerHeroAnimations();
     loader.classList.add('hidden');
     document.body.classList.remove('loading');
-    // Trigger hero animations after loader hides
-    setTimeout(triggerHeroAnimations, 100);
   }
 
   document.body.classList.add('loading');
@@ -26,8 +26,9 @@
 
   // ── HERO ANIMATIONS (on load) ────────────────────────────────
   function triggerHeroAnimations() {
-    const heroEls = document.querySelectorAll('.hero-section .animate-up');
-    heroEls.forEach(el => el.classList.add('visible'));
+    document.querySelectorAll('.hero-section .animate-up, .hero-section .hl-inner').forEach(el => {
+      el.classList.add('visible');
+    });
   }
 
   // ── SCROLL OBSERVER (all other sections) ────────────────────
@@ -216,16 +217,17 @@
   // ── SCROLL PROGRESS BAR ──────────────────────────────────────
   function initScrollProgress() {
     const bar = document.createElement('div');
+    bar.id = 'scroll-prog';
     bar.style.cssText = `
       position: fixed;
       top: 0;
       left: 0;
       height: 2px;
-      background: rgba(242,242,242,0.5);
       z-index: 9999;
       width: 0%;
       transition: width 0.1s linear;
       pointer-events: none;
+      background: linear-gradient(90deg, rgba(74,222,128,0.7) 0%, rgba(242,242,242,0.55) 100%);
     `;
     document.body.appendChild(bar);
 
@@ -235,6 +237,141 @@
       const pct = (scrollTop / docH) * 100;
       bar.style.width = pct + '%';
     }, { passive: true });
+  }
+
+  // ── CUSTOM CURSOR ────────────────────────────────────────────
+  function initCustomCursor() {
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+      document.body.classList.add('touch');
+      return;
+    }
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (!dot || !ring) return;
+
+    let mouseX = 0, mouseY = 0;
+    let ringX  = 0, ringY  = 0;
+    let rafRing;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top  = mouseY + 'px';
+    }, { passive: true });
+
+    function animateRing() {
+      ringX += (mouseX - ringX) * 0.13;
+      ringY += (mouseY - ringY) * 0.13;
+      ring.style.left = ringX + 'px';
+      ring.style.top  = ringY + 'px';
+      rafRing = requestAnimationFrame(animateRing);
+    }
+    rafRing = requestAnimationFrame(animateRing);
+
+    const interactEls = 'a, button, [data-magnetic], .project-card, .cert-item, .nav-pill, .skill-item, canvas';
+    document.querySelectorAll(interactEls).forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.classList.add('cursor-hover');
+        dot.classList.add('cursor-hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.classList.remove('cursor-hover');
+        dot.classList.remove('cursor-hover');
+      });
+    });
+  }
+
+  // ── MAGNETIC HOVER ───────────────────────────────────────────
+  function initMagnetic() {
+    document.querySelectorAll('[data-magnetic]').forEach(el => {
+      const str = parseFloat(el.dataset.magneticStrength || '0.3');
+      let tX = 0, tY = 0, cX = 0, cY = 0;
+      let active = false, raf;
+
+      function tick() {
+        cX += (tX - cX) * 0.12;
+        cY += (tY - cY) * 0.12;
+        el.style.transform = `translate(${cX}px, ${cY}px)`;
+        if (active || Math.abs(tX - cX) > 0.05 || Math.abs(tY - cY) > 0.05) {
+          raf = requestAnimationFrame(tick);
+        } else {
+          el.style.transform = '';
+        }
+      }
+
+      el.addEventListener('mouseenter', () => { active = true; cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); });
+      el.addEventListener('mousemove', e => {
+        const r = el.getBoundingClientRect();
+        tX = (e.clientX - (r.left + r.width / 2)) * str;
+        tY = (e.clientY - (r.top  + r.height / 2)) * str;
+      });
+      el.addEventListener('mouseleave', () => { active = false; tX = 0; tY = 0; });
+    });
+  }
+
+  // ── SCROLL SECTION DOTS ──────────────────────────────────────
+  function initScrollDotsNav() {
+    const nav = document.getElementById('scrollDotsNav');
+    if (!nav) return;
+
+    const sections = [
+      { id: 'hero',       label: 'Home' },
+      { id: 'work',       label: 'Work' },
+      { id: 'experience', label: 'Exp' },
+      { id: 'info',       label: 'About' },
+      { id: 'contact',    label: 'Contact' },
+    ];
+
+    const dots = sections.map(s => {
+      const d = document.createElement('div');
+      d.className = 'scroll-dot';
+      d.dataset.label = s.label;
+      d.title = s.label;
+      d.addEventListener('click', () => {
+        const el = document.getElementById(s.id);
+        if (el) window.scrollTo({ top: el.offsetTop - 72, behavior: 'smooth' });
+      });
+      nav.appendChild(d);
+      return d;
+    });
+
+    function updateDots() {
+      const y = window.scrollY;
+      let activeIdx = 0;
+      sections.forEach((s, i) => {
+        const el = document.getElementById(s.id);
+        if (el && y >= el.offsetTop - 220) activeIdx = i;
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+      nav.classList.toggle('visible', y > 100);
+    }
+
+    window.addEventListener('scroll', updateDots, { passive: true });
+    updateDots();
+  }
+
+  // ── TIMELINE DRAW ANIMATION ──────────────────────────────────
+  function initTimelineDraw() {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('tl-drawn');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.exp-timeline').forEach(t => obs.observe(t));
+  }
+
+  // ── HERO AMBIENT GLOW ────────────────────────────────────────
+  function initHeroAmbient() {
+    const hero = document.querySelector('.hero-section');
+    if (!hero) return;
+    const glow = document.createElement('div');
+    glow.className = 'hero-ambient';
+    hero.appendChild(glow);
   }
 
   // ── SOLAR SYSTEM ─────────────────────────────────────────────
@@ -431,31 +568,75 @@
       return -1;
     }
 
-    // ── CANVAS CLICK ────────────────────────────────────────────
+    // ── PANEL ───────────────────────────────────────────────────
+    const panel   = document.getElementById('planet-panel');
+    const content = document.getElementById('planet-panel-content');
+    const closeBtn = document.getElementById('planet-panel-close');
+    const hint     = document.querySelector('.universe-hint');
+
+    let hoveredIdx = -1;
+    let closeTimer = null;
+
+    function cancelClose() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+    }
+
+    function scheduleClose() {
+      cancelClose();
+      closeTimer = setTimeout(() => {
+        hoveredIdx = -1;
+        closePanel();
+      }, 200);
+    }
+
+    // ── CANVAS HOVER ────────────────────────────────────────────
+    canvas.addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      const ex   = e.clientX - rect.left;
+      const ey   = e.clientY - rect.top;
+      const hit  = hitTest(ex, ey);
+      canvas.style.cursor = hit >= 0 ? 'pointer' : 'default';
+
+      if (hit >= 0) {
+        cancelClose();
+        if (hit !== hoveredIdx) {
+          hoveredIdx = hit;
+          openPanel(hit);
+        }
+      } else if (hoveredIdx >= 0) {
+        scheduleClose();
+      }
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      if (hoveredIdx >= 0) scheduleClose();
+    });
+
+    // Keep the panel open while the cursor is over it (it visually sits
+    // on top of the canvas, so moving into it counts as leaving the canvas).
+    panel.addEventListener('mouseenter', cancelClose);
+    panel.addEventListener('mouseleave', () => {
+      if (hoveredIdx >= 0) scheduleClose();
+    });
+
+    // Touch fallback: tap a planet to open/close its panel.
     canvas.addEventListener('click', e => {
       const rect = canvas.getBoundingClientRect();
       const ex   = e.clientX - rect.left;
       const ey   = e.clientY - rect.top;
       const hit  = hitTest(ex, ey);
       if (hit >= 0) {
+        cancelClose();
+        hoveredIdx = hit;
         openPanel(hit);
       } else if (panelOpen) {
+        hoveredIdx = -1;
         closePanel();
       }
     });
-
-    canvas.addEventListener('mousemove', e => {
-      const rect = canvas.getBoundingClientRect();
-      const ex   = e.clientX - rect.left;
-      const ey   = e.clientY - rect.top;
-      canvas.style.cursor = hitTest(ex, ey) >= 0 ? 'pointer' : 'default';
-    });
-
-    // ── PANEL ───────────────────────────────────────────────────
-    const panel   = document.getElementById('planet-panel');
-    const content = document.getElementById('planet-panel-content');
-    const closeBtn = document.getElementById('planet-panel-close');
-    const hint     = document.querySelector('.universe-hint');
 
     function openPanel(idx) {
       selected = idx;
@@ -495,7 +676,11 @@
       if (hint) hint.classList.remove('hidden');
     }
 
-    closeBtn?.addEventListener('click', closePanel);
+    closeBtn?.addEventListener('click', () => {
+      cancelClose();
+      hoveredIdx = -1;
+      closePanel();
+    });
 
     // ── RENDER LOOP ─────────────────────────────────────────────
     let last = 0;
@@ -562,7 +747,7 @@
     const frame    = document.getElementById('resumeFrame');
     const closeBtn = document.getElementById('resumeClose');
     const backdrop = document.getElementById('resumeBackdrop');
-    const trigger  = document.getElementById('resumeBtn');
+    const triggers = document.querySelectorAll('[data-resume-trigger]');
 
     function openResume() {
       frame.src = pdfViewerUrl('assests/Rahul-Resume.pdf');
@@ -576,7 +761,7 @@
       setTimeout(() => { frame.src = ''; }, 260);
     }
 
-    trigger.addEventListener('click', openResume);
+    triggers.forEach(t => t.addEventListener('click', openResume));
     closeBtn.addEventListener('click', closeResume);
     backdrop.addEventListener('click', closeResume);
     document.addEventListener('keydown', e => {
@@ -627,12 +812,17 @@
     initProjectCards();
     initParallax();
     initCardStagger();
-    initTypingCursor();
     initScrollProgress();
     initMissionControl();
     initResumeModal();
     initCertModal();
     updateNav();
+    // v2 enhancements
+    initCustomCursor();
+    initMagnetic();
+    initScrollDotsNav();
+    initTimelineDraw();
+    initHeroAmbient();
   });
 
 })();
